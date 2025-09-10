@@ -25,7 +25,7 @@ def get_emp(id : int):
 @app.post('/emp',response_model=Employes)
 def add_emp(new_emp : Employee):
     for emp in Employes:
-        if emp.id == new_emp:
+        if emp.id == new_emp.id:
             raise HTTPException(status_code=400, detail="Employee already found")
     Employes.append(new_emp)
     return new_emp
