@@ -16,7 +16,7 @@ def create_employee(db : Session, emp : schemas.EmployeeCreate):
     )
     db.add(db_employee)
     db.commit()
-    db.refresh(db_employee) # through this emp will get an id, since we are not giving any id explicitly
+    db.refresh(db_employee) # through this emp will get an id, since we are not giving any id explicitly (because id is an autogenrated field)
 
 def update_employee(db : Session, emp_id : int, employee : schemas.EmployeeUpdate):
     db_employee = db.query(models.Employee).filter(models.Employee.id == emp_id).first()
